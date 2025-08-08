@@ -7,7 +7,7 @@ create table usuarios (
     nome varchar(100) not null,
     senha varchar(255) not null,
     tipo_acesso enum('admin', 'empresa', 'cliente') not null,
-    primamary key (codusu)
+    primary key (codusu)
 );
 
 create table empresas (
