@@ -3,11 +3,11 @@ create database sistema_agendamentos;
 use sistema_agendamentos;
 
 create table usuarios (
-    codusu int not null auto_increment,
+    codUsu int not null auto_increment,
     nome varchar(100) not null,
     senha varchar(255) not null,
     tipo_acesso enum('admin', 'empresa', 'cliente') not null,
-    primary key (codusu)
+    primary key (codUsu)
 );
 
 create table empresas (
@@ -18,9 +18,9 @@ create table empresas (
     telefone varchar(20),
     endereco varchar(255),
     logo LONGBLOB,
-    codusu int not null,
+    codUsu int not null,
     primary key(codEmp),
-    foreign key (codusu) references usuarios(codusu)
+    foreign key (codUsu) references usuarios(codUsu)
 );
 
 create table clientes (
@@ -31,9 +31,9 @@ create table clientes (
     cpf varchar(14) unique not null,
     endereco varchar(255),
     data_nascimento date,
-    codusu int not null,
-    primary key(codCli)
-    foreign key (codusu) references usuarios(codusu)
+    codUsu int not null,
+    primary key(codCli),
+    foreign key (codUsu) references usuarios(codUsu)
 );
 
 create table servicos (
