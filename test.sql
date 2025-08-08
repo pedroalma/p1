@@ -18,7 +18,9 @@ create table empresas (
     telefone varchar(20),
     endereco varchar(255),
     logo LONGBLOB,
-    primary key(codEmp)
+    codusu int not null,
+    primary key(codEmp),
+    foreign key (codusu) references usuarios(codusu)
 );
 
 create table clientes (
@@ -29,7 +31,9 @@ create table clientes (
     cpf varchar(14) unique not null,
     endereco varchar(255),
     data_nascimento date,
+    codusu int not null,
     primary key(codCli)
+    foreign key (codusu) references usuarios(codusu)
 );
 
 create table servicos (
